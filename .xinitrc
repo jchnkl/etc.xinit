@@ -9,7 +9,7 @@
 #exit 0
 
 exec dbus-launch --exit-with-session sh -c '( \
-  export $(gnome-keyring-daemon -s); GKD_PID=$?; \
+  export $(gnome-keyring-daemon -s); KD_PID=$?; \
 
   setxkbmap -layout 'us' \
   -variant 'altgr-intl' \
@@ -23,14 +23,14 @@ exec dbus-launch --exit-with-session sh -c '( \
   bluetooth-applet & BT_PID=$?; \
 
   if [ $(hostname) = "phobos" ]; then
-    wicd-gtk & WICD_PID=$?;
+    wicd-gtk & CM_PID=$?;
+    xfce4-power-manager & PM_PID=$?;
   fi
 
   xfdesktop & \
   xfce4-panel & \
-  xfce4-power-manager & \
   xmonad & \
   xfce4-session; \
 
-  kill ${GKD_PID} ${BT_PID} ${NM_PID} ${WICD_PID} ${GPM_PID} ${GSD_PID} ${XP_PID};
+  kill ${KD_PID} ${BT_PID} ${CM_PID} ${PM_PID};
   ) 2>&1 >> ${HOME}/.xsession-errors'
