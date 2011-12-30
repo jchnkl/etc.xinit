@@ -32,11 +32,12 @@ exec dbus-launch --exit-with-session sh -c '(
     "urxvtd -q -f -o" \
     "bluetooth-applet" \
     "xfce4-panel" \
-    "xcompmgr -Cn" \
-    "xmonad"
+    "xmonad" \
+    "cairo-compmgr -n"
 
   if [ $(hostname) = "phobos" ]; then
-    bgService "wicd-gtk" "xfce4-power-manager"
+    bgService "wicd-gtk" "xfce4-power-manager" \
+      "nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png"
   elif [ $(hostname) = "monolith" ]; then
     bgService "nitrogen --set-auto ${HOME}/.xinit/GrandCanyon.png"
   fi
