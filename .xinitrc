@@ -32,8 +32,8 @@ exec dbus-launch --exit-with-session sh -c '(
     "urxvtd -q -f -o" \
     "bluetooth-applet" \
     "xfce4-panel" \
-    "xmonad" \
-    "cairo-compmgr -n"
+    "xmonad"
+    #"cairo-compmgr -n"
 
   if [ $(hostname) = "phobos" ]; then
     bgService "wicd-gtk" "xfce4-power-manager" \
