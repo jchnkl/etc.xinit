@@ -7,6 +7,7 @@
 # global (ahem..) variable for all spawned pids
 PIDS=
 
+# ck-launch-session is handled by display manager
 exec dbus-launch --exit-with-session sh -c '(
 
   addPID() {
@@ -30,10 +31,7 @@ exec dbus-launch --exit-with-session sh -c '(
     "xsetroot -cursor_name left_ptr" \
     "xrdb -merge ${HOME}/.Xresources" \
     "urxvtd -q -f -o" \
-    "bluetooth-applet" \
-    "xfce4-panel" \
-    "xmonad"
-    #"cairo-compmgr -n"
+    "cairo-compmgr -n"
 
   if [ $(hostname) = "phobos" ]; then
     bgService "wicd-gtk" "xfce4-power-manager" \
@@ -42,7 +40,7 @@ exec dbus-launch --exit-with-session sh -c '(
     bgService "nitrogen --set-auto ${HOME}/.xinit/GrandCanyon.png"
   fi
 
-  xfce4-session;
+  xmonad;
 
   kill ${PIDS}
 
