@@ -30,8 +30,8 @@ exec dbus-launch --exit-with-session sh -c '(
     "setxkbmap -layout 'us' -variant 'altgr-intl' -option 'caps:swapescape'" \
     "xsetroot -cursor_name left_ptr" \
     "xrdb -merge ${HOME}/.Xresources" \
-    "urxvtd -q -f -o" \
-    "cairo-compmgr -n"
+    "urxvtd -q -f -o"
+    # "cairo-compmgr -n"
 
   if [ $(hostname) = "phobos" ]; then
     bgService "wicd-gtk" "xfce4-power-manager" \
