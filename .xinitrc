@@ -4,9 +4,6 @@
 #
 # Executed by startx (run your window manager from here)
 
-# global (ahem..) variable for all spawned pids
-PIDS=
-
 # ck-launch-session is handled by display manager
 exec dbus-launch --exit-with-session sh -c '(
 
