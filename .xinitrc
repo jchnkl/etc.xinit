@@ -21,6 +21,9 @@ exec dbus-launch --exit-with-session sh -c '(
       nitrogen --set-auto ${HOME}/.xinit/GrandCanyon.png
   fi
 
-  xmonad 2>&1 >> ${HOME}/.xmonad/xmonad.log;
+  xmonad 2>&1 >> ${HOME}/.xmonad/xmonad.log &
+
+  # xfce4-settings-helper &
+  xfce4-session
 
 )'
