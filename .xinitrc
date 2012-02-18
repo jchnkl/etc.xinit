@@ -16,11 +16,16 @@ exec dbus-launch --exit-with-session sh -c '(
 
   if [ $(hostname) = "phobos" ]; then
       xfce4-power-manager &
-      nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png
+      xmobar &
+      nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
   elif [ $(hostname) = "monolith" ]; then
-      nitrogen --set-auto ${HOME}/.xinit/GrandCanyon.png
+      xmobar -x 1 &
+      nitrogen --set-auto ${HOME}/.xinit/GrandCanyon.png &
   fi
 
-  xmonad 2>&1 >> ${HOME}/.xmonad/xmonad.log;
+  xmonad 2>&1 >> ${HOME}/.xmonad/xmonad.log &
+
+  # xfce4-settings-helper &
+  xfce4-session
 
 )'
