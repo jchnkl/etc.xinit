@@ -9,6 +9,7 @@ exec dbus-launch --exit-with-session sh -c '(
 
   export $(gnome-keyring-daemon -s)
 
+  xmodmap ~/.Xmodmap
   setxkbmap -layout 'us' -variant 'altgr-intl' -option 'caps:swapescape'
   xsetroot -cursor_name left_ptr
   xrdb -merge ${HOME}/.Xresources
