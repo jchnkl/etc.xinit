@@ -16,6 +16,7 @@ exec dbus-launch --exit-with-session sh -c '(
   urxvtd -q -f -o
 
   if [ $(hostname) = "phobos" ]; then
+      dispwin ~/.color/icc/phobos_screen_0.icc
       xfce4-power-manager &
       xmobar &
       nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
