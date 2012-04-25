@@ -5,7 +5,9 @@
 # Executed by startx (run your window manager from here)
 
 # ck-launch-session is handled by display manager
-exec dbus-launch --exit-with-session sh -c '(
+#exec dbus-launch --exit-with-session sh -c '(
+
+source /etc/X11/xinit/xinitrc.d/30-dbus
 
   export $(gnome-keyring-daemon -s)
 
@@ -30,6 +32,6 @@ exec dbus-launch --exit-with-session sh -c '(
   xmonad 2>&1 >> ${HOME}/.xmonad/xmonad.log &
 
   # xfce4-settings-helper &
-  xfce4-session
+  exec xfce4-session
 
-)'
+#)'
