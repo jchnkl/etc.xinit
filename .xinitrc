@@ -18,8 +18,8 @@ exec dbus-launch --exit-with-session sh -c '(
   if [ $(hostname) = "phobos" ]; then
       dispwin ~/.color/icc/phobos_screen_0.icc
       xfce4-power-manager &
-      xmobar &
       nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
+      xmobar &
   elif [ $(hostname) = "monolith" ]; then
       dispwin -d 1 ~/.color/icc/monolith_screen0_right.icc
       dispwin -d 2 ~/.color/icc/monolith_screen1_left.icc
