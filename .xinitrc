@@ -23,8 +23,8 @@ exec dbus-launch --exit-with-session sh -c '(
   elif [ $(hostname) = "monolith" ]; then
       dispwin -d 1 ~/.color/icc/monolith_screen0_right.icc
       dispwin -d 2 ~/.color/icc/monolith_screen1_left.icc
-      xmobar -x 1 &
       nitrogen --set-auto ${HOME}/.xinit/GrandCanyon.png &
+      xmobar -x 1 &
   fi
 
   xmonad 2>&1 >> ${HOME}/.xmonad/xmonad.log &
