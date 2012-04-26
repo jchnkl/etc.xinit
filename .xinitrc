@@ -23,8 +23,8 @@ source /etc/X11/xinit/xinitrc.d/30-dbus
       nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
       xmobar &
   elif [ $(hostname) = "monolith" ]; then
-      dispwin -d 1 ~/.color/icc/monolith_screen0_right.icc
-      dispwin -d 2 ~/.color/icc/monolith_screen1_left.icc
+      dispwin -c -d 1 -I ~/.color/icc/hp_lp2475w_right_lab_relative_colorimetric.icc &
+      dispwin -c -d 2 -I ~/.color/icc/hp_lp2475w_left_lab_relative_colorimetric.icc &
       nitrogen --set-auto ${HOME}/.xinit/GrandCanyon.png &
       xmobar -x 1 &
   fi
