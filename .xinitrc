@@ -5,7 +5,6 @@
 # Executed by startx (run your window manager from here)
 
 # ck-launch-session is handled by display manager
-#exec dbus-launch --exit-with-session sh -c '(
 
 source /etc/X11/xinit/xinitrc.d/30-dbus
 
@@ -33,5 +32,3 @@ source /etc/X11/xinit/xinitrc.d/30-dbus
 
   # xfce4-settings-helper &
   exec xfce4-session
-
-#)'
