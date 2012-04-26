@@ -20,12 +20,12 @@ if [ $(hostname) = "phobos" ]; then
     dispwin ~/.color/icc/phobos_screen_0.icc
     xfce4-power-manager &
     nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
-    xmobar &
+    xmobar ${HOME}/.xmobarrc.phobos &
 elif [ $(hostname) = "monolith" ]; then
     dispwin -c -d 1 -I ~/.color/icc/hp_lp2475w_right_lab_relative_colorimetric.icc &
     dispwin -c -d 2 -I ~/.color/icc/hp_lp2475w_left_lab_relative_colorimetric.icc &
     nitrogen --set-auto ${HOME}/.xinit/GrandCanyon.png &
-    xmobar -x 1 &
+    xmobar -x 1 ${HOME}/.xmobarrc.monolith &
 fi
 
 xmonad 2>&1 >> ${HOME}/.xmonad/xmonad.log &
