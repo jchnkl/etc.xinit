@@ -13,7 +13,7 @@ export $(gnome-keyring-daemon -s)
 xmodmap ~/.Xmodmap &
 setxkbmap -layout 'us' -variant 'altgr-intl' -option 'caps:swapescape'
 xsetroot -cursor_name left_ptr
-xrdb -I${HOME}/.dotfiles -merge ${HOME}/.Xresources
+xrdb -merge ${HOME}/.Xresources
 urxvtd -q -f -o
 
 if [ $(hostname) = "phobos" ]; then
