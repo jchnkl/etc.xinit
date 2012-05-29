@@ -18,7 +18,7 @@ urxvtd -q -f -o
 
 if [ $(hostname) = "phobos" ]; then
     dispwin ~/.color/icc/phobos_screen_0.icc
-    xfce4-power-manager &
+    PATH=~/.local/bin:${PATH}; xfce4-power-manager &
     nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
     xmobar ${HOME}/.xmobarrc.phobos &
 elif [ $(hostname) = "monolith" ]; then
