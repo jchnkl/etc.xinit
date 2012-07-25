@@ -19,6 +19,14 @@ xset s off -dpms
 xrdb -merge ${HOME}/.Xresources
 urxvtd -q -f -o
 
+# for xinitscript in ~/.xinitrc.d/*; do
+    # if [ -x ${xinit} ]; then
+        # source ${xinitscript}
+    # fi
+# done
+
+~/.xinitrc.d/systemEventHandler.sh &
+
 if [ $(hostname) = "phobos" ]; then
     dispwin ~/.color/icc/phobos_screen_0.icc
     PATH=~/.local/bin:${PATH}; xfce4-power-manager &
