@@ -20,7 +20,8 @@ if [ $(hostname) = "phobos" ]; then
     dispwin ~/.color/icc/phobos_screen_0.icc
     PATH=~/.local/bin:${PATH}; xfce4-power-manager &
     nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
-    xmobar ${HOME}/.xmobarrc.phobos &
+    xmobar ${HOME}/.xmobarrc.phobos.dark &
+    # xmobar ${HOME}/.xmobarrc.phobos.light &
 elif [ $(hostname) = "monolith" ]; then
     dispwin -c -d 1 -I ~/.color/icc/hp_lp2475w_right_lab_relative_colorimetric.icc &
     dispwin -c -d 2 -I ~/.color/icc/hp_lp2475w_left_lab_relative_colorimetric.icc &
