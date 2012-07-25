@@ -15,6 +15,7 @@ setxkbmap -layout 'us' -variant 'altgr-intl' -option 'caps:swapescape'
 # setxkbmap is the successor of xmodmap and thus overwrite any rules
 xmodmap ~/.Xmodmap
 xsetroot -cursor_name left_ptr
+xset s off -dpms
 xrdb -merge ${HOME}/.Xresources
 urxvtd -q -f -o
 
