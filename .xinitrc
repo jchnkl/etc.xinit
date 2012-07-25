@@ -28,9 +28,11 @@ urxvtd -q -f -o
 ~/.xinitrc.d/systemEventHandler.sh &
 
 if [ $(hostname) = "phobos" ]; then
-    dispwin ~/.color/icc/phobos_screen_0.icc
-    PATH=~/.local/bin:${PATH}; xfce4-power-manager &
-    nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
+    # dispwin ~/.color/icc/phobos_screen_0.icc
+    # PATH=~/.local/bin:${PATH}; xfce4-power-manager &
+    # nitrogen --set-auto /usr/share/backgrounds/DenseClouds.png &
+    xsetroot -solid '#002b36' # dark
+    # xsetroot -solid '#fdf6e3' # light
     xmobar ${HOME}/.xmobarrc.phobos.dark &
     # xmobar ${HOME}/.xmobarrc.phobos.light &
 elif [ $(hostname) = "monolith" ]; then
