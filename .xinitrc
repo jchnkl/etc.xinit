@@ -10,8 +10,10 @@ source /etc/X11/xinit/xinitrc.d/30-dbus
 
 export $(gnome-keyring-daemon -s)
 
-xmodmap ~/.Xmodmap &
 setxkbmap -layout 'us' -variant 'altgr-intl' -option 'caps:swapescape'
+# xmodmap before setxkbmap will give you a baaad time:
+# setxkbmap is the successor of xmodmap and thus overwrite any rules
+xmodmap ~/.Xmodmap
 xsetroot -cursor_name left_ptr
 xrdb -merge ${HOME}/.Xresources
 urxvtd -q -f -o
