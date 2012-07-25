@@ -35,6 +35,8 @@ if [ $(hostname) = "phobos" ]; then
     # xsetroot -solid '#fdf6e3' # light
     xmobar ${HOME}/.xmobarrc.phobos.dark &
     # xmobar ${HOME}/.xmobarrc.phobos.light &
+    synclient TouchpadOff=1 &
+
 elif [ $(hostname) = "monolith" ]; then
     dispwin -c -d 1 -I ~/.color/icc/hp_lp2475w_right_lab_relative_colorimetric.icc &
     dispwin -c -d 2 -I ~/.color/icc/hp_lp2475w_left_lab_relative_colorimetric.icc &
