@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 function dbusSend () {
     # echo "dbusSend $1"
 
@@ -39,29 +38,16 @@ function switchDisplay () {
     case "$1" in
         dock)
             xrandr --nograb -d :0.0 --output HDMI3 --auto --primary \
-                --output LVDS1 --off 2>&1 | logger
+                --output LVDS1 --off
             xrandr --nograb -d :0.0 --output HDMI2 --auto --left-of HDMI3 \
-                --rotate left  2>&1 | logger
+                --rotate left
             ;;
 
         undock)
-            xrandr --nograb -d :0.0 --output HDMI2 --off 2>&1 | logger
+            xrandr --nograb -d :0.0 --output HDMI2 --off
             xrandr --nograb -d :0.0 --output LVDS1 --auto --primary \
-                --output HDMI3 --off 2>&1 | logger
+                --output HDMI3 --off
             ;;
 
     esac
-}
-
-
-function getBrightness () {
-    xrandr --verbose | grep -m1 Brightness | cut -d ' ' -f 2 | \
-        xargs echo "100 * " | bc | cut -d '.' -f 1
-}
-
-
-function setBrightness () {
-    brightness=$( echo $1 | xargs echo "scale=2; 1/100 * "  | bc )
-    xrandr --output HDMI2 --brightness $brightness \
-           --output HDMI3 --brightness $brightness
 }
