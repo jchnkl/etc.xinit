@@ -6,9 +6,7 @@ HOOKS=${HOME}/.xinitrc.d/hooks.sh
 
 source ${HOME}/.xinitrc.d/utils.sh
 
-trap stopJobs SIGINT
-trap stopJobs SIGHUP
-trap stopJobs SIGUSR1
+trap stopJobs SIGINT SIGHUP SIGUSR1
 
 function stopJobs () { for pid in $(jobs -p); do kill -SIGUSR1 $pid; done; }
 
