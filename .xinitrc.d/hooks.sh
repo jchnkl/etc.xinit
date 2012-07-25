@@ -1,8 +1,6 @@
 #!/bin/bash
 
 source ~/.xinitrc.d/utils.sh
-source ~/.xinitrc.d/brightnessHandler.sh
-# source ~/.xinitrc.d/volumeHandler.sh
 
 eventHooks['NotifySleep']='suspendHook'
 
