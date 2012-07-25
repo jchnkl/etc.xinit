@@ -26,68 +26,56 @@ eventHooks['button/lid LID close']='lidKeyHook'
 # Fn + F7
 eventHooks['video/switchmode VMOD 00000080 00000000 K']='displaySwitchKey'
 
-eventHooks['video/brightnessup BRTUP 00000086 00000000 K']='brightnessUpHook brightnessNotification'
+eventHooks['video/brightnessup BRTUP 00000086 00000000 K']='' # 'brightnessUpHook brightnessNotification'
 
-eventHooks['video/brightnessdown BRTDN 00000087 00000000 K']='brightnessDownHook brightnessNotification'
+eventHooks['video/brightnessdown BRTDN 00000087 00000000 K']='' # 'brightnessDownHook brightnessNotification'
 
-# eventHooks['button/volumeup VOLUP 00000080 00000000 K']='volumeIncrease volumeNotification'
+eventHooks['button/volumeup VOLUP 00000080 00000000 K']=''
 
-# eventHooks['button/volumedown VOLDN 00000080 00000000 K']='volumeDecrease volumeNotification'
+eventHooks['button/volumedown VOLDN 00000080 00000000 K']=''
+
+eventHooks['button/screenlock SCRNLCK 00000080 00000000 K']='xlock'
 
 function commonHook () {
     # echo "commonHook0 $@"
-
     setxkbmap -layout 'us' -variant 'altgr-intl' -option 'caps:swapescape'
     xmodmap ~/.Xmodmap
 }
 
 
 function dockHook () {
+    switchDisplay dock
+    xrandr --output HDMI2 --brightness 1 --output HDMI3 --brightness 1
 
-    if [ "$( dbusSend isDocked )" ]; then
-        switchDisplay dock
-
-        pkill xlock
-        if [ $? -eq 0 ]; then
-            xlock -allowaccess &
-        fi
+    pkill xlock
+    if [ $? -eq 0 ]; then
+        xlock -allowaccess &
     fi
 
     commonHook
-    pkill xmobar; xmobar -x1 ~/.xmobarrc.phobos.dark &
-
+    pkill xmobar; xmobar -x1 ~/.xmobarrc.phobos.dark &!
 }
 
 
 function undockHook () {
-
     switchDisplay undock
+    xrandr --verbose --output LVDS1 --brightness 1
     commonHook
-    pkill xmobar; xmobar -x0 ~/.xmobarrc.phobos.dark &
-
+    pkill xmobar; xmobar -x0 ~/.xmobarrc.phobos.dark &!
 }
 
-function resumeHook () {
-    dockHook
-    amixer set Master unmute
-}
+function resumeHook () { if [ "$( dbusSend isDocked )" ]; then dockHook; fi; }
 
-function suspendHook () {
-    undockHook
-    amixer set Master mute
-}
+function suspendHook () { undockHook; }
 
-function hibernateHook () {
-    undockHook
-    amixer set Master mute
-}
+# function hibernateHook () { suspendHook; }
 
 function sleepKeyHook () {
     xlock -allowaccess &
     dbusSend $1
 }
 
-function lidKeyHook () { sleepKeyHook Suspend; }
+function lidKeyHook () { suspendKeyHook; }
 
 function suspendKeyHook () { sleepKeyHook Suspend; }
 
@@ -101,30 +89,4 @@ function displaySwitchKey () {
         dockHook
         undockHook
     fi
-}
-
-function brightnessHook () {
-    step=10
-
-    if [ "$( dbusSend isDocked )" ]; then
-
-        brightness=$( getBrightness )
-
-        if [ $1 = up -a $brightness -lt 100 ]; then
-            brightness=$((brightness + step))
-        elif [ $1 = down -a $brightness -gt $step ]; then
-            brightness=$((brightness - step))
-        fi
-
-        setBrightness $brightness
-
-    fi
-}
-
-function brightnessUpHook () {
-    brightnessHook up
-}
-
-function brightnessDownHook () {
-    brightnessHook down
 }
