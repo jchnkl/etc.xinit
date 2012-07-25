@@ -47,7 +47,6 @@ elif [ $(hostname) = "monolith" ]; then
     xmobar -x 1 ${HOME}/.xmobarrc.monolith &
 fi
 
-xmonad 2>&1 >> ${HOME}/.xmonad/xmonad.log &
+exec xmonad # 2>&1 >> ${HOME}/.xmonad/xmonad.log
 
 # xfce4-settings-helper &
-exec xfce4-session
