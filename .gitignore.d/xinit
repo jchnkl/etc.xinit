@@ -1,0 +1,9 @@
+*
+!/.gitignore.d
+!/.gitignore.d/xinit
+!/.xinitrc
+!/.xinitrc.d
+!/.xinitrc.d/hooks.sh
+!/.xinitrc.d/systemEventHandler.sh
+!/.xinitrc.d/utils.sh
+!/.xsession
