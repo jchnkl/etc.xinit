@@ -3,7 +3,10 @@
 !/.gitignore.d/xinit
 !/.xinitrc
 !/.xinitrc.d
-!/.xinitrc.d/hooks.sh
-!/.xinitrc.d/systemEventHandler.sh
-!/.xinitrc.d/utils.sh
+!/.xinitrc.d/sinks.d
+!/.xinitrc.d/sinks.d/10-ac.sh
+!/.xinitrc.d/sinks.d/10-kbd.sh
+!/.xinitrc.d/sinks.d/10-keys.sh
+!/.xinitrc.d/sinks.d/10-xinput.sh
+!/.xinitrc.d/sinks.d/10-xrandr.sh
 !/.xsession
