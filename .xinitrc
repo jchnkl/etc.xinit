@@ -27,7 +27,7 @@ synclient TouchpadOff=1
 xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
 
 # for generic (wm-independent) keybindings
-xbindkeys
+xbindkeys -p
 
 # start the wm
 openbox
