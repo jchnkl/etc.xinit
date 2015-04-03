@@ -1,15 +1,33 @@
 #!/bin/bash
 
+# don't load fancy cursor themes
+# man 3 Xcursor
 export XCURSOR_PATH=
 
+# run the keyring daemon
+# all env variables except SSH_AUTH_SOCK are deprecated
+# as of gpg-2.2 gnome-keyring-daemon is not supported anymore
+# current solution is to keep old gpg installed
 eval $(gnome-keyring-daemon -s)
 export SSH_AUTH_SOCK
 
-xrdb -l ${HOME}/.Xresources
+# add non-standard font-path
+xset fp +/usr/share/fonts/local
 
+# merge custom settings
+xrdb -merge ${HOME}/.Xresources
+
+# disable touchpad
 synclient TouchpadOff=1
+
+# configure marble mouse
 ~/.xinitrc.d/xinput.sh
+
+# load custom keymap
 xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
 
+# for generic (wm-independent) keybindings
 xbindkeys
+
+# start the wm
 openbox
