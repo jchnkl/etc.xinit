@@ -17,6 +17,12 @@ xset fp +/usr/share/fonts/local
 # merge custom settings
 xrdb -merge ${HOME}/.Xresources
 
+# fades color temperature to red
+redshift -r -v -t 6500:4500 -l 49.452778:11.077778 &
+
+# hides mouse cursor on kbd events
+xbanish &
+
 # disable touchpad
 synclient TouchpadOff=1
 
