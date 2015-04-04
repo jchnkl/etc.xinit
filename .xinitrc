@@ -35,5 +35,11 @@ xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
 # for generic (wm-independent) keybindings
 xbindkeys -p
 
+# run core event handler: https://github.com/jotrk/core.sh
+SRCS_D=~/.xinitrc.d/srcs.d/ SINKS_D=~/.xinitrc.d/sinks.d/ core.sh
+COREPID=$!
+
 # start the wm
 openbox
+
+pkill ${COREPID}
