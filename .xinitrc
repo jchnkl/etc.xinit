@@ -30,9 +30,11 @@ xrdb -merge ${HOME}/.Xresources
 
 # fades color temperature to red
 redshift -r -v -t 6500:4500 -l 49.452778:11.077778 &
+PIDS+=($!)
 
 # hides mouse cursor on kbd events
 xbanish &
+PIDS+=($!)
 
 # disable touchpad
 synclient TouchpadOff=1
@@ -45,6 +47,7 @@ xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
 
 # for generic (wm-independent) keybindings
 xbindkeys -p
+PIDS+=($!)
 
 # run core event handler: https://github.com/jotrk/core.sh
 SRCS_D=~/.xinitrc.d/srcs.d/ SINKS_D=~/.xinitrc.d/sinks.d/ core.sh
