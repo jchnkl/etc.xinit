@@ -1,5 +1,16 @@
 #!/bin/bash
 
+declare -a PIDS
+
+function kill_pids()
+{
+  for PID in ${PIDS[@]}
+    kill ${PID}
+  done
+}
+
+trap "kill_pids" EXIT
+
 # don't load fancy cursor themes
 # man 3 Xcursor
 export XCURSOR_PATH=
@@ -37,9 +48,7 @@ xbindkeys -p
 
 # run core event handler: https://github.com/jotrk/core.sh
 SRCS_D=~/.xinitrc.d/srcs.d/ SINKS_D=~/.xinitrc.d/sinks.d/ core.sh
-COREPID=$!
+PIDS+=($!)
 
 # start the wm
 openbox
-
-pkill ${COREPID}
