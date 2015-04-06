@@ -22,6 +22,9 @@ export XCURSOR_PATH=
 eval $(gnome-keyring-daemon -s)
 export SSH_AUTH_SOCK
 
+# disable bell
+xset b off
+
 # add non-standard font-path
 xset fp +/usr/share/fonts/local
 
