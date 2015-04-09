@@ -4,7 +4,7 @@ declare -a PIDS
 
 function kill_pids()
 {
-  for PID in ${PIDS[@]}
+  for PID in ${PIDS[@]}; do
     kill ${PID}
   done
 }
