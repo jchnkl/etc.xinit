@@ -49,7 +49,7 @@ synclient TouchpadOff=1
 xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
 
 # for generic (wm-independent) keybindings
-xbindkeys -p
+xbindkeys -n -p &
 PIDS+=($!)
 
 # run core event handler: https://github.com/jotrk/core.sh
