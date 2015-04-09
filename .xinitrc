@@ -26,7 +26,7 @@ export SSH_AUTH_SOCK
 xset b off
 
 # add non-standard font-path
-xset fp +/usr/share/fonts/local
+xset fp+ /usr/share/fonts/local
 
 # merge custom settings
 xrdb -merge ${HOME}/.Xresources
