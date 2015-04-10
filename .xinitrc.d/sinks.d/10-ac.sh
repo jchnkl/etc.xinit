@@ -8,9 +8,11 @@ case $@ in
     if [ "${ONLINE}" == "1" ]; then
       xset -dpms
       xset s off
+      xbacklight -set 100
     else
       xset +dpms
       xset s 120
+      [[ $(xbacklight -get) -gt 30 ]] && xbacklight -set 30
     fi
     ;;
 esac
