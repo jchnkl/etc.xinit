@@ -58,3 +58,6 @@ PIDS+=($!)
 
 # start the wm
 openbox
+
+# kill all leftover processes started by this script
+pkill -P $$
