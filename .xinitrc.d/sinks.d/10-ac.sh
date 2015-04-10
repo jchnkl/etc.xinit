@@ -5,7 +5,7 @@ case $@ in
     AC=$(echo $@ | cut -d' ' -f 4)
     ONLINE=$(cat /sys/${AC}/online)
 
-    if [ "${ONLINE}" == "1" ]; then
+    if [[ "${ONLINE}" == "1" ]]; then
       xset -dpms
       xset s off
       xbacklight -set 100
