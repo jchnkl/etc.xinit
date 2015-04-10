@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 case $@ in
   UDEV*change*/devices/*/AC*)
