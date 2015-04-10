@@ -16,11 +16,11 @@ trap "kill_pids" EXIT
 export XCURSOR_PATH=
 
 # run the keyring daemon
-# all env variables except SSH_AUTH_SOCK are deprecated
-# as of gpg-2.2 gnome-keyring-daemon is not supported anymore
-# current solution is to keep old gpg installed
+# as of gnupg-2.1 gnome-keyring-daemon is not supported anymore
+# current solution is to keep old gnupg (<= 2.0) installed
 eval $(gnome-keyring-daemon -s)
 export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
 
 # disable bell
 xset b off
