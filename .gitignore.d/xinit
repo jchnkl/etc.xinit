@@ -7,6 +7,7 @@
 !/.xinitrc.d/sinks.d/10-ac.sh
 !/.xinitrc.d/sinks.d/10-kbd.sh
 !/.xinitrc.d/sinks.d/10-keys.sh
+!/.xinitrc.d/sinks.d/10-nitrogen.sh
 !/.xinitrc.d/sinks.d/10-xinput.sh
 !/.xinitrc.d/sinks.d/10-xrandr.sh
 !/.xinitrc.d/srcs.d
