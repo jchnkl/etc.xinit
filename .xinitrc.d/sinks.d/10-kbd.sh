@@ -13,5 +13,8 @@ case $@ in
       fi
     fi
 
+    # disable the bell
+    xset b off
+
     ;;
 esac
