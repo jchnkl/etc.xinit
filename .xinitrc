@@ -56,6 +56,10 @@ PIDS+=($!)
 SRCS_D=~/.xinitrc.d/srcs.d/ SINKS_D=~/.xinitrc.d/sinks.d/ ~/.local/bin/core.sh &
 PIDS+=($!)
 
+# start compositing manager
+compton &
+PIDS+=($!)
+
 # start the wm
 openbox
 
