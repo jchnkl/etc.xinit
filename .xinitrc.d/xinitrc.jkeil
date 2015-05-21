@@ -1,0 +1,24 @@
+#!/bin/bash
+
+declare -a PIDS
+
+function kill_pids()
+{
+  for PID in ${PIDS[@]}; do
+    kill ${PID}
+  done
+}
+
+trap "kill_pids" EXIT
+
+# configure marble mouse
+~/.xinitrc.d/xinput.sh
+
+# load custom keymap
+xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
+
+# start the wm
+openbox
+
+# kill all leftover processes started by this script
+pkill -P $$
