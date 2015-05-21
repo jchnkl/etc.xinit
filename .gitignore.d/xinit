@@ -14,4 +14,6 @@
 !/.xinitrc.d/srcs.d/10-acpi_listen.sh
 !/.xinitrc.d/srcs.d/10-dbus-monitor.sh
 !/.xinitrc.d/srcs.d/10-udevadm.sh
+!/.xinitrc.d/xinitrc.common
+!/.xinitrc.d/xinitrc.phobos
 !/.xsession
