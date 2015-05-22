@@ -17,6 +17,10 @@ trap "kill_pids" EXIT
 # load custom keymap
 xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
 
+# run xautolock
+xautolock -locker 'xlock -dpmsoff 5' &
+PIDS+=($!)
+
 # start the wm
 openbox
 
