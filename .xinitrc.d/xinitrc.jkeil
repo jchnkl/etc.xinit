@@ -11,6 +11,23 @@ function kill_pids()
 
 trap "kill_pids" EXIT
 
+# don't load fancy cursor themes
+# man 3 Xcursor
+export XCURSOR_PATH=
+
+# run the keyring daemon
+# as of gnupg-2.1 gnome-keyring-daemon is not supported anymore
+# current solution is to keep old gnupg (<= 2.0) installed
+eval $(gnome-keyring-daemon -s)
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+
+# disable bell
+xset b off
+
+# merge custom settings
+xrdb -merge ${HOME}/.Xresources
+
 # configure marble mouse
 ~/.xinitrc.d/xinput.sh
 
@@ -23,6 +40,10 @@ PIDS+=($!)
 
 # run xautolock
 xautolock -locker 'xlock -dpmsoff 5' &
+PIDS+=($!)
+
+# for generic (wm-independent) keybindings
+xbindkeys -n -p &
 PIDS+=($!)
 
 # start the wm
