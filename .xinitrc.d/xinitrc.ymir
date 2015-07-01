@@ -22,6 +22,9 @@ eval $(gnome-keyring-daemon -s)
 export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 
+# configure display
+xrandr --output DVI-I-1 --right-of DP-0 --rotate left
+
 # disable bell
 xset b off
 
