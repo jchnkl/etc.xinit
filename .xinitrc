@@ -42,7 +42,7 @@ PIDS+=($!)
 synclient TouchpadOff=1
 
 # configure marble mouse
-~/.xinitrc.d/xinput.sh
+source ${HOME}/.xinitrc.d/xinput.sh
 
 # load custom keymap
 xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
