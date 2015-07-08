@@ -2,12 +2,14 @@
 
 case $@ in
   UDEV*add*/devices/*/mouse?\ *)
-    NAME="Logitech USB Trackball"
+    Logitech="Logitech USB Trackball"
+    ThinkPad="Lite-On Technology Corp. ThinkPad USB Keyboard with TrackPoint"
     HIDRAW=$(echo $@ | cut -d' ' -f 4)
+    echo "HIDRAW: ${HIDRAW}" 1>&2
 
-    if [ "$(cat /sys/${HIDRAW}/device/name)" == "${NAME}" ]; then
+    if [ "$(cat /sys/${HIDRAW}/device/name)" == "${Logitech}" ]; then
       sleep 0.5
-      echo "xinput for ${NAME}"
+      echo "Configuring ${Logitech} .."
 
       device='Logitech USB Trackball'
 
@@ -31,6 +33,13 @@ case $@ in
       xinput set-prop "${device}" "${wheel_emulation_axes}" 6 7 4 5
       xinput set-prop "${device}" "${wheel_emulation_button}" 8
       xinput set-prop "${device}" "${wheel_emulation_inertia}" 6
+
+    elif [ "$(cat /sys/${HIDRAW}/device/name)" == "${ThinkPad}" ]; then
+      sleep 0.5
+      echo "Configuring ${ThinkPad} .." 1>&2
+      if [ -f /sys/${HIDRAW}/device/sensitivity ]; then
+        echo 255 | sudo tee -a /sys/${HIDRAW}/device/device/sensitivity
+      fi
     fi
     ;;
 
