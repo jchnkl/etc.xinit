@@ -48,6 +48,10 @@ PIDS+=($!)
 xbindkeys -n -p &
 PIDS+=($!)
 
+# start compositing manager
+compton &
+PIDS+=($!)
+
 # start the wm
 openbox
 
