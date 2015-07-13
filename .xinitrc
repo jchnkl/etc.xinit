@@ -48,6 +48,10 @@ PIDS+=($!)
 xbindkeys -n -p &
 PIDS+=($!)
 
+# set a nice background wallpaper
+# first = screen 0, second = screen 1, etc.
+feh --bg-scale ~/wallpaper/sunflower.jpg ~/wallpaper/norway_ice_waterfalls.jpg
+
 # start compositing manager
 compton &
 PIDS+=($!)
