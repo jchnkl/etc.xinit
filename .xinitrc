@@ -41,7 +41,7 @@ xbanish &
 PIDS+=($!)
 
 # run xautolock
-xautolock -locker 'xlock -lockdelay 5 -dpmsoff 10' &
+xautolock -locker 'xlock -lockdelay 60 -dpmsoff 60' &
 PIDS+=($!)
 
 # for generic (wm-independent) keybindings
