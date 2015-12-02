@@ -47,6 +47,9 @@ source ${HOME}/.xinitrc.d/xinput.sh
 # load custom keymap
 xkbcomp -I${HOME}/.xkb ${HOME}/.xkb/keymap/default $DISPLAY
 
+# set background wallpaper
+nitrogen --restore
+
 # for generic (wm-independent) keybindings
 xbindkeys -n -p &
 PIDS+=($!)
