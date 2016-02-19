@@ -1,16 +1,12 @@
 *
-!/.gitignore.d
 !/.gitignore.d/xinit
 !/.xinitrc
-!/.xinitrc.d
-!/.xinitrc.d/sinks.d
 !/.xinitrc.d/sinks.d/10-ac.sh
 !/.xinitrc.d/sinks.d/10-kbd.sh
 !/.xinitrc.d/sinks.d/10-keys.sh
 !/.xinitrc.d/sinks.d/10-nitrogen.sh
 !/.xinitrc.d/sinks.d/10-xinput.sh
 !/.xinitrc.d/sinks.d/10-xrandr.sh
-!/.xinitrc.d/srcs.d
 !/.xinitrc.d/srcs.d/10-acpi_listen.sh
 !/.xinitrc.d/srcs.d/10-dbus-monitor.sh
 !/.xinitrc.d/srcs.d/10-udevadm.sh
