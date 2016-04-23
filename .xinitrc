@@ -18,8 +18,17 @@ export XCURSOR_PATH=
 # run the keyring daemon
 # as of gnupg-2.1 gnome-keyring-daemon is not supported anymore
 # current solution is to keep old gnupg (<= 2.0) installed
-gnome-keyring-daemon --start --foreground --components=secrets &
-PIDS+=($!)
+
+# gnome-keyring-daemon --start --foreground --components=secrets &
+# eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+# gnome-keyring-daemon --replace --foreground --components=secrets &
+# PIDS+=($!)
+# export SSH_AUTH_SOCK
+
+# if [ "x${GNOME_KEYRING_CONTROL}x" = "xx" -a -f "$XDG_RUNTIME_DIR/keyring" ]; then
+#   export GNOME_KEYRING_CONTROL="$XDG_RUNTIME_DIR/keyring"
+#   gnome-keyring-daemon --replace --daemonize --components=secrets
+# fi
 
 # disable bell
 xset b off
