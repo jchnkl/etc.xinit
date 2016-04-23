@@ -77,4 +77,4 @@ PIDS+=($!)
 openbox
 
 # kill all leftover processes started by this script
-kill_pids
+kill $(ps -o pid= --ppid $$)
