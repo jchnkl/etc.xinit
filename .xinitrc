@@ -15,6 +15,10 @@ trap "kill_pids" EXIT
 # man 3 Xcursor
 export XCURSOR_PATH=
 
+systemctl --user import-environment DISPLAY
+
+systemctl --user restart gpg-agent.service
+
 # run the keyring daemon
 # as of gnupg-2.1 gnome-keyring-daemon is not supported anymore
 # current solution is to keep old gnupg (<= 2.0) installed
