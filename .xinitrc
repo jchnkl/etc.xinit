@@ -64,7 +64,9 @@ xbindkeys -n -p &
 PIDS+=($!)
 
 # run core event handler: https://github.com/jotrk/core.sh
-SRCS_D=~/.xinitrc.d/srcs.d/ SINKS_D=~/.xinitrc.d/sinks.d/ ~/.local/bin/core.sh &
+SRCS_D=~/.xinitrc.d/srcs.d \
+  SINKS_D=~/.xinitrc.d/sinks.d \
+  ~/.local/bin/core.sh &
 PIDS+=($!)
 
 # start compositing manager
