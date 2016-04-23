@@ -76,8 +76,5 @@ PIDS+=($!)
 # start the wm
 openbox
 
-# reload gpg-agent, so it can be unlocked on next login
-envoy -r
-
 # kill all leftover processes started by this script
 kill_pids
