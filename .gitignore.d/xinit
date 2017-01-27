@@ -17,5 +17,6 @@
 !/.xinitrc.d/xinitrc.common
 !/.xinitrc.d/xinitrc.jkeil
 !/.xinitrc.d/xinitrc.phobos
+!/.xinitrc.d/xinitrc.silo
 !/.xinitrc.d/xinput.sh
 !/.xsession

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+xrdb -load .Xresources
+
+setxkbmap -option caps:escape
+
+xset +fp /usr/share/fonts/termsyn
+
+xbindkeys -n -p &
+
+# start the wm
+# openbox
+exec i3 -V >> /tmp/i3.log.$(date -Iseconds) 2>&1
