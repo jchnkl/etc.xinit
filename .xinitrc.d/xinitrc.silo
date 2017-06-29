@@ -9,5 +9,4 @@ xset +fp /usr/share/fonts/termsyn
 xbindkeys -n -p &
 
 # start the wm
-# openbox
-exec i3 -V >> /tmp/i3.log.$(date -Iseconds) 2>&1
+mate-session >> ~/tmp/mate-session.log.$(date -Iseconds) 2>&1
